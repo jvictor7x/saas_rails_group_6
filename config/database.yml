@@ -23,7 +23,10 @@ default: &default
 
 development:
   <<: *default
-  database: saas_rails_group_6_development
+  url: <%= ENV["DATABASE_URL"] %>
+  database: postgres_80du
+  username: postgres_80du_user
+  password: Y6zeaHwf91EAAiMjWf3eXuokVsNXHywo
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +60,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: saas_rails_group_6_test
+  url: <%= ENV["DATABASE_URL"] %>
+  database: saas_rails_group_6_production
+  username: saas_rails_group_6
+  password: <%= ENV["SAAS_RAILS_GROUP_6_DATABASE_PASSWORD"] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
